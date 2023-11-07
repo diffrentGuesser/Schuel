@@ -29,11 +29,19 @@
 <body>
     <h1>Chemie Lernziele + Lösungen</h1>
 
-    <div class="solution">
-        <h2>Lernziel 1</h2>
-        <p><strong>Sie wissen, womit sich die Chemie beschäftigt.</strong></p>
-        <p><strong>Lösung:</strong> Die Chemie beschäftigt sich mit den Eigenschaften, Zusammensetzungen und Veränderungen von Materie. Sie erforscht die Struktur von Atomen und Molekülen, Reaktionen zwischen verschiedenen Substanzen und die Energieveränderungen, die dabei auftreten.</p>
+    <div id="loginForm">
+        <label for="username">Benutzername:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="button" onclick="authenticate()">Einloggen</button>
     </div>
+
+    <div class="solution" id="lernziele" style="display: none;">
+        <div class="solution">
+            <h2>Lernziel 1</h2>
+            <p><strong>Sie wissen, womit sich die Chemie beschäftigt.</strong></p>
+            <p><strong>Lösung:</strong> Die Chemie beschäftigt sich mit den Eigenschaften, Zusammensetzungen und Veränderungen von Materie. Sie erforscht die Struktur von Atomen und Molekülen, Reaktionen zwischen verschiedenen Substanzen und die Energieveränderungen, die dabei auftreten.</p>
 
     <div class="solution">
         <h2>Lernziel 2</h2>
@@ -99,7 +107,27 @@
         <h2>Lernziel 12</h2>
         <p><strong>Sie kennen die Begriffe hydrophil und lipophil und den Zusammenhang mit der Extraktion als Trennmethode.</strong></p>
         <p><strong>Lösung:</strong> Hydrophil bedeutet wasserliebend, während lipophil fettliebend bedeutet. In der Extraktion werden diese Eigenschaften genutzt, um Stoffe aus einem Gemisch in einem Lösungsmittel zu lösen. Hydrophile Substanzen lösen sich gut in wässrigen Lösungsmitteln, während lipophile Substanzen sich besser in fettigen Lösungsmitteln lösen.</p>
-    </div>
+    </div>    </div>
+
+    <script>
+        function authenticate() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Hardcoded Logins
+            var logins = {
+                "leon": "leon1234",
+                "sean": "sean1234"
+            };
+
+            if (logins[username] && logins[username] === password) {
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("lernziele").style.display = "block";
+            } else {
+                alert("Falscher Benutzername oder Passwort. Bitte versuchen Sie es erneut.");
+            }
+        }
+    </script>
 
 </body>
 
